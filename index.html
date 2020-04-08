@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="port-Br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Primeiro Vue</title>
+</head>
+
+<body>
+    <h2> testando o uso do Vue2 para cam</h2>
+    <div id="app">
+        <vue-webcam ref='webcam'> </vue-webcam>
+
+        <img :src="photo" alt="" style="width:400px; height:300px" />
+        <br/>
+        <button type="button" @click="take_photo">Take Photo</button>
+    </div>
+
+
+    <script src=" https://unpkg.com/vue/dist/vue.js "></script>
+    <script src="meeting2.js"></script>
+
+</body>
+
+</html>
