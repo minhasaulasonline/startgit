@@ -1,3 +1,4 @@
+//begin stud of cam
 Vue.component('vue-webcam', {
     render: function(h) {
         return h('video', {
