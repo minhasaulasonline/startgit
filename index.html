@@ -4,17 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Primeiro Vue</title>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
 </head>
 
 <body>
-    <h2> testando o uso do Vue2 para cam</h2>
-    <div id="app">
-        <vue-webcam ref='webcam'> </vue-webcam>
 
-        <img :src="photo" alt="" style="width:400px; height:300px" />
-        <br/>
-        <button type="button" @click="take_photo">Take Photo</button>
+    <ul>
+        <li><a class="active" href="#meeting">Meeting</a></li>
+        <li><a href="#newmeeting">New Meeting</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#search">Search</a></li>
+
+    </ul>
+
+    <div style="margin-left:15%;padding:1px 16px;height:1000px;">
+
+        <h2>Some ongoing meeting</h2>
+        <div id="app">
+
+
+            <h3>Select a meeting to join</h3>
+            <div class="grid-container1">
+                <video class="grid-container2">
+    
+                        <vue-webcam ref='webcam'> </vue-webcam>
+                   </video>
+
+                <div class="grid-container2">2</div>
+                <div class="grid-container2">3</div>
+                <div class="grid-container2">4</div>
+                <div class="grid-container2">5</div>
+                <div class="grid-container2">6</div>
+            </div>
+            <p>Notice: Some meeting dont have free access, but you can request access </p>
+            <p>Also notice: you select the correct meeting </p>
+
+
+        </div>
     </div>
+
+    <h2> testando o uso do Vue 09/04</h2>
+    <img :src="photo" alt="" style="width:10px; height:100px" />
+    <br/>
+    <button type="button" @click="take_photo">Take Photo</button>
+
+
+
 
 
     <script src=" https://unpkg.com/vue/dist/vue.js "></script>
