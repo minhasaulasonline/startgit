@@ -1,4 +1,3 @@
-//begin stud of cam
 Vue.component('vue-webcam', {
     render: function(h) {
         return h('video', {
@@ -18,11 +17,11 @@ Vue.component('vue-webcam', {
         },
         width: {
             type: Number,
-            default: 400
+            default: 40
         },
         height: {
             type: Number,
-            default: 300
+            default: 30
         },
         mirror: {
             type: Boolean,
@@ -64,14 +63,15 @@ Vue.component('vue-webcam', {
 
                 this.ctx = canvas.getContext('2d');
 
-               /*if (this.mirror) {
-                const context = canvas.getContext('2d');
-                context.translate(canvas.width, 0);
-                context.scale(-1, 1);
-                this.ctx = context;
+
+                if (this.mirror) {
+                    const context = canvas.getContext('2d');
+                    context.translate(canvas.width, 0);
+                    context.scale(-1, 1);
+                    this.ctx = context;
                 } else {
-                this.ctx = canvas.getContext('2d');
-                }*/
+                    this.ctx = canvas.getContext('2d');
+                }
             }
 
             const { ctx, canvas } = this;
@@ -85,18 +85,34 @@ Vue.component('vue-webcam', {
         this.video = this.$refs.video;
         navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia || navigator.oGetUserMedia;
 
-        
+        /*        if (navigator.getUserMedia) {
+                    navigator.getUserMedia({ video: true }, (stream) => {
+                        this.src = window.elem.srcObject = stream;
+                        this.stream = stream;
+                        this.hasUserMedia = true;
+                    }, (error) => {
+                        console.log(error);
+                    });
+                }
 
+
+                */
+
+        //function cam controll rom function
 
         if (navigator.mediaDevices.getUserMedia) {
             navigator.mediaDevices.getUserMedia({ audio: false, video: { facingMode: 'user' } })
                 .then(function(stream) {
                     //Definir o elemento vídeo a carregar o capturado pela webcam
-                    const videoPlayer = document.querySelector("video");
-                    videoPlayer.srcObject = stream;
-                    videoPlayer.play();
-                
-                
+
+                    const video = document.querySelector("video");
+                    video.srcObject = stream;
+                    video.play();
+                    video.width = 200;
+                    video.height = 200;
+
+
+
                 })
                 .catch(function(error) {
                     alert("Bi o que está errado? ");
@@ -125,6 +141,7 @@ new Vue({
     },
     methods: {
         take_photo() {
+
             this.photo = this.$refs.webcam.getPhoto();
         }
     }
